@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualSUS - Telemedicina</title>
+    <link rel="stylesheet" href="/CSS/home.CSS"> <!-- Link para o arquivo CSS externo -->
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav id="navbar">
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#cadastre-se">CADASTRE-SE</a></li>
+                <li><a href="#login">LOGIN</a></li>
+                <li><img src="/IMG/sus.png" alt="Logo VirtualSUS" id="nav-logo"></li>
+                <li><a href="#visualizar-historico">VISUALIZAR HISTÓRICO</a></li>
+            </ul>
+        </nav>
+        <h1>VirtualSUS - Telemedicina</h1>
+    </header>
+
+    <main>
+        <section id="triagem">
+            <h2>Triagem</h2>
+            <form id="screening-form">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+
+                <label for="sintomas">Sintomas:</label>
+                <textarea id="sintomas" name="sintomas" required></textarea>
+
+                <button id="triagem-button" type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <div id="loading-bar">
+            <div></div>
+        </div>
+
+        <section id="espera" style="display: none;">
+            <h2>Aguarde sua Consulta</h2>
+            <div id="timer-container">
+                <p id="timer">Aguardando...</p>
+                <a id="consultation-link" href="#" style="display: none;">Entrar na Consulta</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VirtualSUS - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="/JS/home.JS"></script>
+</body>
+</html>

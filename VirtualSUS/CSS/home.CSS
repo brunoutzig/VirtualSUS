@@ -1,0 +1,219 @@
+/* Estilização do corpo */
+body {
+    background-image: url(/IMG/background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Suporta navbar, main e footer */
+    height: 100vh;
+    font-family: Arial, sans-serif; /* Adicionado para melhor aparência */
+    color: rgb(255, 255, 255);
+}
+
+/* Navbar */
+#navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar ul li {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#navbar ul li a:hover {
+    color: #007bff; /* Efeito hover */
+}
+
+#nav-logo {
+    height: 40px; /* Ajuste o tamanho da imagem */
+    margin: 0 15px;
+}
+
+/* Centralizar logo na navbar */
+#navbar ul li:nth-child(4) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Centralização da div #triagem */
+main {
+    flex: 1; /* Faz com que o main ocupe o espaço disponível */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estilo da div #triagem */
+#triagem {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    max-width: 500px;
+}
+
+/* Centralizar itens dentro do formulário */
+#screening-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#screening-form label,
+#screening-form input,
+#screening-form textarea,
+#screening-form button {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Estilização dos botões */
+button,
+#screening-form button,
+#consultation-link,
+#print-prescription {
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover,
+#screening-form button:hover,
+#consultation-link:hover,
+#print-prescription:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos Específicos */
+#consultation-link {
+    background-color: #28a745;
+    border-radius: 8px;
+}
+
+#consultation-link:hover {
+    background-color: #218838;
+}
+
+#print-prescription {
+    background-color: #17a2b8;
+    border-radius: 8px;
+}
+
+#print-prescription:hover {
+    background-color: #138496;
+}
+
+#triagem-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#triagem-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Barra de carregamento */
+#loading-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #f3f3f3;
+    overflow: hidden;
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+#loading-bar div {
+    width: 0;
+    height: 100%;
+    background-color: #007bff;
+    position: absolute;
+    animation: loading 5s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+        width: 100%;
+    }
+    50% {
+        left: 0;
+        width: 100%;
+    }
+    100% {
+        left: 100%;
+        width: 100%;
+    }
+}
+
+/* Footer fixo na base */
+footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(0, 123, 255, 0.8);
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    position: sticky;
+    bottom: 0;
+}
