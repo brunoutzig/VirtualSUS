@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualSUS - Telemedicina</title>
+    <link rel="stylesheet" href="/CSS/home.css">
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav id="navbar">
+            <ul>
+                <li><a href="#esquerdo1" class="nav-link">Início</a></li>
+                <li><a href="#esquerdo2" class="nav-link">Cadastre-se</a></li>
+                <li><img src="/IMG/sus.png" alt="Logo VirtualSUS" id="nav-logo"></li>
+                <li><a href="#direito1" class="nav-link">Histórico</a></li>
+                <li><a href="#direito2" class="nav-link">Sobre</a></li>
+            </ul>
+        </nav>
+        <h1>VirtualSUS - Telemedicina</h1>
+    </header>
+
+    <main>
+        <section id="triagem">
+            <h2>Triagem</h2>
+            <form id="screening-form">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+
+                <label for="sintomas">Sintomas:</label>
+                <textarea id="sintomas" name="sintomas" required></textarea>
+
+                <button id="triagem-button" type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <div id="loading-bar" style="display: none;">
+            <div></div>
+        </div>
+
+        <section id="mensagem-senha" style="display: none;">
+            <h2>Sua senha foi gerada!</h2>
+            <p id="senha-gerada"></p>
+            <p id="timer"></p>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VirtualSUS - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="/JS/home.js"></script>
+    <script>
+        // Funções Utilitárias
+        function exibirElemento(id, display = 'block') {
+            document.getElementById(id).style.display = display;
+        }
+
+        function esconderElemento(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // Formulário de Triagem: Validação e Geração da Senha
+        const screeningForm = document.getElementById('screening-form');
+        screeningForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Previne o envio do formulário padrão
+
+            // Validação dos dados do formulário
+            const nome = document.getElementById('nome').value;
+            const cpf = document.getElementById('cpf').value;
+            const sintomas = document.getElementById('sintomas').value;
+
+            if (!nome || !cpf || !sintomas) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Lógica de envio (exemplo para backend, se necessário)
+            console.log('Dados da triagem:', { nome, cpf, sintomas });
+
+            // Gerar uma senha aleatória para o usuário
+            const senha = 'SUS' + Math.floor(1000 + Math.random() * 9000); // Exemplo: SUS1234
+            document.getElementById('senha-gerada').textContent = `Sua senha é: ${senha}`;
+
+            // Exibir a barra de carregamento
+            esconderElemento('triagem');
+            exibirElemento('loading-bar'); // Mostrar a barra de carregamento
+            setTimeout(() => {
+                esconderElemento('loading-bar'); // Ocultar a barra após 5 segundos
+                exibirElemento('mensagem-senha'); // Exibir a mensagem de senha
+                iniciarTimer(60); // Inicia o timer com 60 segundos
+            }, 5000); // Simula o carregamento por 5 segundos
+        });
+
+        // Timer e Barra de Progresso
+        function iniciarTimer(duracao) {
+            let tempoRestante = duracao;
+            const timerElemento = document.getElementById('timer');
+            const progressoElemento = document.getElementById('progress-bar');
+
+            const intervalo = setInterval(() => {
+                const minutos = Math.floor(tempoRestante / 60);
+                const segundos = tempoRestante % 60;
+
+                // Atualizar o texto do timer
+                timerElemento.textContent = `Tempo restante: ${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+
+                // Atualizar a barra de progresso
+                const progresso = ((duracao - tempoRestante) / duracao) * 100;
+                progressoElemento.style.width = `${progresso}%`;
+
+                tempoRestante--;
+
+                if (tempoRestante < 0) {
+                    clearInterval(intervalo);
+                    timerElemento.textContent = 'Seu tempo expirou!';
+                    progressoElemento.style.width = '100%'; // Progresso completo ao finalizar
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

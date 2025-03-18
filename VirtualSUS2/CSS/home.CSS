@@ -1,0 +1,127 @@
+/* Estilização do corpo */
+body {
+    background-image: url(/IMG/background.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+/* Navbar */
+#navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar ul li {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#navbar ul li a:hover {
+    color: #007bff;
+}
+
+#nav-logo {
+    height: 40px;
+    margin: 0 15px;
+    flex-shrink: 0;
+}
+
+/* Centralizar logo na navbar */
+#navbar ul li:nth-child(3) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Centralização do conteúdo principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estilo da seção #triagem */
+#triagem {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 500px;
+    color: rgb(0, 0, 0);
+}
+
+/* Estilo do formulário */
+#screening-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#screening-form label,
+#screening-form input,
+#screening-form textarea,
+#screening-form button {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Estilo do botão Enviar */
+#triagem-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#triagem-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0,)
+}
